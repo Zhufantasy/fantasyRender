@@ -6,10 +6,14 @@ int main(int argc, char** argv) {
 	const TGAColor red = TGAColor(255, 0, 0, 255);
 	TGAImage image(50, 30, TGAImage::RGB);
 
-	std::array<int, 2> p1{ 2,3 };
-	std::array<int, 2> p2{ 40,9 };
-	std::array<int, 2> p3{ 21,25 };
-	draw_triangle(p1, p2, p3, image, red);
+	std::array<std::array<int, 3>, 3> points;
+	points[0] = std::array<int, 3>{2, 3, 0};
+	points[1] = std::array<int, 3>{40, 9, 0};
+	points[2] = std::array<int, 3>{21, 25, 0};
+	Triangle t{points};
+
+
+	draw_triangle_filled(t, image, red);
 
 	image.write_tga_file("output.tga");
 	return 0;

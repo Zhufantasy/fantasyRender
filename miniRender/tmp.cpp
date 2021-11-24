@@ -28,35 +28,29 @@ void draw_line(int x0, int y0, int x1, int y1, TGAImage &image, TGAColor color)
 		x += 1;
 		y += slope;
 	}
-	/*for (int x = x0; x <= x1; ++x) {
-		float diff = (x - x0) / (float)(x1 - x0);
-		int y = y0 + (y1 - y0)*diff;
-		if (isSwap) {
-			image.set(y, x, color);
-		}
-		else {
+}
+
+
+void draw_triangle(const Triangle &t, TGAImage &image, TGAColor color)
+{
+	draw_line(t.vertices[0][0], t.vertices[0][1], t.vertices[1][0], t.vertices[1][1], image, color);
+	draw_line(t.vertices[1][0], t.vertices[1][1], t.vertices[2][0], t.vertices[2][1], image, color);
+	draw_line(t.vertices[2][0], t.vertices[2][1], t.vertices[0][0], t.vertices[0][1], image, color);
+}
+
+void draw_triangle_filled(const Triangle &t, TGAImage &image, TGAColor color)
+{
+	int maxX = std::max(t.vertices[0][0], std::max(t.vertices[1][0], t.vertices[2][0]));
+	int maxY = std::max(t.vertices[0][1], std::max(t.vertices[1][1], t.vertices[2][1]));
+	int minX = std::min(t.vertices[0][0], std::min(t.vertices[1][0], t.vertices[2][0]));
+	int minY = std::min(t.vertices[0][1], std::min(t.vertices[1][1], t.vertices[2][1]));
+
+	for (int x = minX; x <= maxX; ++x) {
+		for (int y = minY; y <= maxY; ++y) {
+			if (!t.insideTriangle(std::array<int, 2>{ x, y })) {
+				continue;
+			}
 			image.set(x, y, color);
 		}
-	}*/
-}
-
-
-void draw_triangle(std::array<int, 2> p1, std::array<int, 2> p2, std::array<int, 2> p3, TGAImage &image, TGAColor color)
-{
-	draw_line(p1[0], p1[1], p2[0], p2[1], image, color);
-	draw_line(p2[0], p2[1], p3[0], p3[1], image, color);
-	draw_line(p3[0], p3[1], p1[0], p1[1], image, color);
-}
-
-bool insideTriangle(std::array<std::array<int,2>,3>)
-{
-
-}
-
-void draw_triangle_filled(std::array<int, 2> p1, std::array<int, 2> p2, std::array<int, 2> p3, TGAImage &image, TGAColor color)
-{
-	int maxX = std::max(p1[0], std::max(p2[0], p3[0]));
-	int maxY = std::max(p1[1], std::max(p2[1], p3[1]));
-	int minX = std::min(p1[0], std::min(p2[0], p3[0]));
-	int minY = std::min(p1[1], std::min(p2[1], p3[1]));
+	}
 }

@@ -1,5 +1,4 @@
 #include "triangle.h"
-#include<algorithm>
 
 Triangle::Triangle(const std::array<std::array<int, 3>, 3> &input) :vertices(input)
 {
@@ -7,7 +6,7 @@ Triangle::Triangle(const std::array<std::array<int, 3>, 3> &input) :vertices(inp
 }
 
 //²Î¿¼:https://leetcode-cn.com/circle/discuss/7OldE4/
-bool Triangle::insideTriangle(const std::array<int, 2> &p)
+bool Triangle::insideTriangle(const std::array<int, 2> &p) const
 {
 	if (((p[0] - vertices[0][0])*(vertices[1][1] - vertices[0][1]) - (p[1] - vertices[0][1])*(vertices[1][0] - vertices[0][0])) < 0) {
 		return false;

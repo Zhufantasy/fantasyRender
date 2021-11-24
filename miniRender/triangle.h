@@ -2,6 +2,7 @@
 #define __TRIANGLE_H__
 
 #include<array>
+#include<algorithm>
 
 class Triangle {
 public:
@@ -10,7 +11,7 @@ public:
 	Triangle() = default;
 	Triangle(const std::array<std::array<int, 3>, 3> &input);
 
-	bool insideTriangle(const std::array<int, 2> &p);
+	bool insideTriangle(const std::array<int, 2> &p) const;
 
 
 private:
