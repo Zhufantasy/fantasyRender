@@ -1,0 +1,5 @@
+﻿D:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: 中间目录(x64\Debug\)包含从另一个项目(miniRender.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+  tmp.cpp
+d:\vs2017_project\minirender\minirender\tgaimage.h(44): warning C4244: “=”: 从“double”转换到“uint8_t”，可能丢失数据
+d:\vs2017_project\minirender\minirender\tmp.cpp(19): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+  miniRender.vcxproj -> D:\vs2017_project\miniRender\x64\Debug\fantasyRender.exe
