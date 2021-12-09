@@ -125,17 +125,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="camera.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="math.cpp" />
+    <ClCompile Include="rasterization.cpp" />
+    <ClCompile Include="scene.cpp" />
     <ClCompile Include="tgaimage.cpp" />
     <ClCompile Include="tmp.cpp" />
     <ClCompile Include="tmp.h" />
-    <ClCompile Include="triangle.cpp" />
+    <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="math.h" />
+    <ClInclude Include="camera.h" />
+    <ClInclude Include="light.h" />
+    <ClInclude Include="OBJ_Loader.h" />
+    <ClInclude Include="rasterization.h" />
+    <ClInclude Include="scene.h" />
     <ClInclude Include="tgaimage.h" />
-    <ClInclude Include="triangle.h" />
+    <ClInclude Include="mesh.h" />
+    <ClInclude Include="type.h" />
+    <ClInclude Include="window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

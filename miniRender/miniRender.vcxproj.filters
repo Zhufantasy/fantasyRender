@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\platform">
+      <UniqueIdentifier>{598f5d0e-4121-43ea-8dfa-323d8f56f469}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\platform\linux">
+      <UniqueIdentifier>{fff88d6c-0160-495a-80c2-d0ba6d1230e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\platform\windows">
+      <UniqueIdentifier>{98237dfb-f146-4a3e-aabc-a2834226f80e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\platform">
+      <UniqueIdentifier>{68b5c262-be3a-4c85-8064-9e65dc8119ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\platform\linux">
+      <UniqueIdentifier>{6afb219b-5ac8-41e6-81df-789075bc2c80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\platform\windows">
+      <UniqueIdentifier>{9fd0db0b-2d51-4774-8a59-986e2aa2c00f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -27,22 +45,49 @@
     <ClCompile Include="tmp.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="math.cpp">
+    <ClCompile Include="camera.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="triangle.cpp">
+    <ClCompile Include="mesh.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="scene.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rasterization.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="window.cpp">
+      <Filter>源文件\platform\windows</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tgaimage.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="math.h">
+    <ClInclude Include="OBJ_Loader.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="triangle.h">
+    <ClInclude Include="type.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="light.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="scene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mesh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="rasterization.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="window.h">
+      <Filter>头文件\platform\windows</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
