@@ -6,6 +6,8 @@ Rasterization::Rasterization(int width, int height)
 {
 	frameBuffer.resize(width*height);
 	depthBuffer.resize(width*height, std::numeric_limits<float>::max());
+	this->width = width;
+	this->height = height;
 }
 
 void Rasterization::setScene(Scene* scene)
@@ -13,9 +15,9 @@ void Rasterization::setScene(Scene* scene)
 	this->scene = scene;
 }
 
-int Rasterization::getIndex(int w, int h)
+int Rasterization::getIndex(int r, int c)
 {
-
+	return r * width + c;
 }
 
 bool Rasterization::render()

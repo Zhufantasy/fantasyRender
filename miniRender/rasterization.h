@@ -11,10 +11,12 @@ public:
 	std::vector<vec3f> frameBuffer;
 	std::vector<float> depthBuffer;
 	Scene* scene;
+	int width;
+	int height;
 
 	Rasterization(int width, int height);
 	void setScene(Scene* scene);
-	int getIndex(int w, int h);
+	int getIndex(int row, int column);
 	bool render();
 
 private:
