@@ -39,12 +39,6 @@
     <ClCompile Include="tgaimage.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="tmp.h">
-      <Filter>头文件</Filter>
-    </ClCompile>
-    <ClCompile Include="tmp.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="camera.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -60,11 +54,11 @@
     <ClCompile Include="window.cpp">
       <Filter>源文件\platform\windows</Filter>
     </ClCompile>
+    <ClCompile Include="type.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="tgaimage.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="OBJ_Loader.h">
       <Filter>头文件</Filter>
     </ClInclude>

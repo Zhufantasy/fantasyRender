@@ -16,9 +16,14 @@ struct Vertex {
 
 class Triangle {
 public:
-	Vertex* verticesP[3];
+	Vertex vertices[3];
 
 	bool insideTriangle(const vec2f &p) const;
+	//计算重心坐标
+	vec3f calculateBarycentricCoordinates(const vec2f &p) const;
+	//插值
+	vec2f interpolate(const vec3f &baryCoord, const vec2f& vert1, const vec2f& vert2, const vec2f& vert3);
+	vec3f interpolate(const vec3f &baryCoord, const vec3f& vert1, const vec3f& vert2, const vec3f& vert3);
 
 private:
 	//将三角形三个顶点修改为逆时针方向

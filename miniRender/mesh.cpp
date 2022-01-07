@@ -5,7 +5,7 @@
 //²Î¿¼:https://leetcode-cn.com/circle/discuss/7OldE4/
 bool Triangle::insideTriangle(const vec2f &p) const
 {
-	vec3f beryCoord = calculateBarycentricCoordinates(this, p);
+	vec3f beryCoord = calculateBarycentricCoordinates(p);
 	if (beryCoord[0] > 0 && beryCoord[1] > 0 && beryCoord[2] > 0) {
 		return true;
 	}
@@ -17,13 +17,38 @@ bool Triangle::insideTriangle(const vec2f &p) const
 //²Î¿¼:https://leetcode-cn.com/circle/discuss/7OldE4/
 void Triangle::counterClockWise()
 {
-	if (((verticesP[2]->posi[0] - verticesP[0]->posi[0])*(verticesP[1]->posi[1] - verticesP[0]->posi[1]) - (verticesP[2]->posi[1] - verticesP[0]->posi[1])*(verticesP[1]->posi[0] - verticesP[0]->posi[0])) > 0) {
+	if (((vertices[2].posi[0] - vertices[0].posi[0])*(vertices[1].posi[1] - vertices[0].posi[1]) - (vertices[2].posi[1] - vertices[0].posi[1])*(vertices[1].posi[0] - vertices[0].posi[0])) > 0) {
 		return;
 	}
 	else {
-		std::swap(verticesP[1], verticesP[2]);
+		std::swap(vertices[1], vertices[2]);
 	}
 	return;
+}
+
+vec3f Triangle::calculateBarycentricCoordinates(const vec2f &p) const
+{
+	vec3f p1 = this->vertices[0].posi, p2 = this->vertices[1].posi, p3 = this->vertices[2].posi;
+	float tmp1 = -(p[0] - p3[0])*(p1[1] - p3[1]) + (p[1] - p3[1])*(p1[0] - p3[0]);
+	float tmp2 = -(p2[0] - p3[0])*(p1[1] - p3[1]) + (p1[1] - p2[1])*(p1[0] - p3[0]);
+	float tmp3 = -(p[0] - p2[0])*(p3[1] - p2[1]) + (p[1] - p2[1])*(p3[0] - p2[0]);
+	float tmp4 = -(p1[0] - p2[0])*(p3[1] - p2[1]) + (p1[1] - p2[1])*(p3[0] - p2[0]);
+	return vec3f{ tmp1 / tmp2,tmp3 / tmp4,1 - tmp1 / tmp2 - tmp3 / tmp4 };
+}
+
+vec2f Triangle::interpolate(const vec3f &baryCoord, const vec2f& vert1, const vec2f& vert2, const vec2f& vert3)
+{
+	auto u = baryCoord[0] * vert1[0] + baryCoord[1] * vert2[0] + baryCoord[2] * vert3[0];
+	auto v = baryCoord[0] * vert1[1] + baryCoord[1] * vert2[1] + baryCoord[2] * vert3[1];
+	return vec2f{ u,v };
+}
+
+vec3f Triangle::interpolate(const vec3f &baryCoord, const vec3f& vert1, const vec3f& vert2, const vec3f& vert3)
+{
+	auto u = baryCoord[0] * vert1[0] + baryCoord[1] * vert2[0] + baryCoord[2] * vert3[0];
+	auto v = baryCoord[0] * vert1[1] + baryCoord[1] * vert2[1] + baryCoord[2] * vert3[1];
+	auto w = baryCoord[0] * vert1[2] + baryCoord[1] * vert2[2] + baryCoord[2] * vert3[2];
+	return vec3f{ u,v,w };
 }
 
 Mesh::Mesh() {

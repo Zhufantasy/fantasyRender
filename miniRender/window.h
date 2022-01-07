@@ -7,7 +7,13 @@
 #include "type.h"
 #include "rasterization.h"
 
-class Window {
+class BaseWindow {
+public:
+	static LRESULT CALLBACK wndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
+	virtual LRESULT handleMessage(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) = 0;
+};
+
+class Window:public BaseWindow {
 public:
 	HWND hwnd;
 	MSG msg;
@@ -19,10 +25,7 @@ public:
 	Window(Rasterization *r);
 	void windowInit();
 	void windowShow();
-
-
-private:
-	LRESULT CALLBACK wndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
+	LRESULT handleMessage(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 };
 
 #endif // !__WINDOW_H__

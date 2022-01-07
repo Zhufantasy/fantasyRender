@@ -13,7 +13,6 @@ public:
 	std::vector<Mesh*> meshs;
 	Camera* camera;
 
-private:
 	void add(Light *l);
 	void add(Mesh *m);
 	void setCamera(Camera *cam);

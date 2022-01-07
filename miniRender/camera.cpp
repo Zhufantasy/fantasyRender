@@ -1,7 +1,7 @@
 #include"camera.h"
 #include"type.h"
 
-Camera::Camera() :posi(vec3f{ 0,0,0 }), up(vec3f{ 0,0,1 }), front(vec3f{ 0,0,-1 }), verticalAngle(90), zNear(0.1), zFar(100)
+Camera::Camera() :posi(vec3f{ 0,0,0 }), up(vec3f{ 0,0,1 }), front(vec3f{ 0,0,-1 }), verticalAngle(90), ratio(1.2), zNear(0.1), zFar(100)
 {
 	this->view = {
 		1,0,0,0,
@@ -26,7 +26,7 @@ Camera::Camera() :posi(vec3f{ 0,0,0 }), up(vec3f{ 0,0,1 }), front(vec3f{ 0,0,-1 
 	this->projection = mat4f_multi_mat4f(m2, m1);
 };
 
-Camera::Camera(vec3f posi, vec3f up, vec3f front) :posi(posi), up(up), front(front), verticalAngle(90), zNear(0.1), zFar(100)
+Camera::Camera(vec3f posi, vec3f up, vec3f front) :posi(posi), up(up), front(front), verticalAngle(90), ratio(1.2), zNear(0.1), zFar(100)
 {
 	vec3f frontMultiUp = crossProduct(front, up);
 	mat4f Rview = {

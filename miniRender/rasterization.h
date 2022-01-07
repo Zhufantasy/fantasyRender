@@ -20,7 +20,7 @@ public:
 	bool render();
 
 private:
-
+	void drawTriangleFilled(const Triangle &t,const mat4f &screenAndProjection);
 };
 
 

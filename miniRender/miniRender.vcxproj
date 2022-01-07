@@ -130,9 +130,8 @@
     <ClCompile Include="rasterization.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="tgaimage.cpp" />
-    <ClCompile Include="tmp.cpp" />
-    <ClCompile Include="tmp.h" />
     <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="type.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -141,7 +140,6 @@
     <ClInclude Include="OBJ_Loader.h" />
     <ClInclude Include="rasterization.h" />
     <ClInclude Include="scene.h" />
-    <ClInclude Include="tgaimage.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="type.h" />
     <ClInclude Include="window.h" />
