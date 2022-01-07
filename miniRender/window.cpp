@@ -42,7 +42,6 @@ void Window::windowShow()
 
 	while (GetMessage(&msg, NULL, 0, 0))
 	{
-		r->render();
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
 	}

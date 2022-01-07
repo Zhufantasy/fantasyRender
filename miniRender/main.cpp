@@ -21,9 +21,9 @@ int main(int argc, char** argv) {
 		for (int i = 0; i < mesh.Vertices.size(); i += 3) {
 			Triangle* t = new Triangle();
 			for (int j = 0; j < 3; ++j) {
-				t->vertices[j].posi[0] = mesh.Vertices[i + j].Position.X * 200;
-				t->vertices[j].posi[1] = mesh.Vertices[i + j].Position.Y * 200;
-				t->vertices[j].posi[2] = mesh.Vertices[i + j].Position.Z * 200;
+				t->vertices[j].posi[0] = mesh.Vertices[i + j].Position.X;
+				t->vertices[j].posi[1] = mesh.Vertices[i + j].Position.Y;
+				t->vertices[j].posi[2] = mesh.Vertices[i + j].Position.Z;
 				//t->normal[j][0] = mesh.Vertices[i + j].Normal.X;
 				//t->normal[j][1] = mesh.Vertices[i + j].Normal.Y;
 				//t->normal[j][2] = mesh.Vertices[i + j].Normal.Z;
@@ -35,8 +35,9 @@ int main(int argc, char** argv) {
 		scene.add(tmpMesh);
 	}
 
-	Rasterization rasterization(1000,800);
+	Rasterization rasterization(10,5);
 	rasterization.setScene(&scene);
+	rasterization.render();
 
 	Window window(&rasterization);
 	window.windowInit();
