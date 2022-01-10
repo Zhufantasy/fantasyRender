@@ -20,6 +20,21 @@ int Rasterization::getIndex(int r, int c)
 	return c * width + r;
 }
 
+void Rasterization::clearFrameBuffer()
+{
+	vec3f tmp = { 200,200,200 };
+	for (vec3f &a : frameBuffer) {
+		a = tmp;
+	}
+}
+
+void Rasterization::clearDepthBuffer()
+{
+	for (float &a : depthBuffer) {
+		a = std::numeric_limits<float>::min();
+	}
+}
+
 bool Rasterization::render()
 {
 	for (auto mesh : scene->meshs) {

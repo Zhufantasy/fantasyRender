@@ -8,6 +8,7 @@
 #include<array>
 
 int main(int argc, char** argv) {
+	//准备各种数据结构和数据
 	Camera camera;
 	Scene scene;
 	scene.setCamera(&camera);
@@ -37,11 +38,22 @@ int main(int argc, char** argv) {
 
 	Rasterization rasterization(200,100);
 	rasterization.setScene(&scene);
-	rasterization.render();
 
+	//创建窗口
 	Window window(&rasterization);
 	window.windowInit();
-	window.windowShow();
+
+	//渲染循环
+	while (!window.isClose) {
+		rasterization.clearFrameBuffer();
+		rasterization.clearDepthBuffer();
+
+		rasterization.scene->camera->updateView();
+		rasterization.scene->camera->updateProjection();
+
+		rasterization.render();
+		window.windowShow();
+	}
 
 	return 0;
 }

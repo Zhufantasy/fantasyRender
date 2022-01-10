@@ -2,9 +2,10 @@
 
 Window::Window(Rasterization *r)
 {
+	this->r = r;
+	this->isClose = false;
 	this->width = r->width;
 	this->height = r->height;
-	this->r = r;
 }
 
 void Window::windowInit()
@@ -38,8 +39,10 @@ void Window::windowInit()
 void Window::windowShow()
 {
 	ShowWindow(hwnd, SW_SHOW);
-	//UpdateWindow(hwnd);
+}
 
+void Window::handleMsg()
+{
 	while (GetMessage(&msg, NULL, 0, 0))
 	{
 		TranslateMessage(&msg);
@@ -51,24 +54,6 @@ LRESULT Window::handleMessage(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	switch (msg)
 	{
-	case WM_PAINT:
-	{
-		PAINTSTRUCT ps;
-		HDC hdc = BeginPaint(hwnd, &ps);
-		vec3f tmpColor;
-		int tmpIndex;
-
-		for (int i = 0; i < this->width; ++i) {
-			for (int j = 0; j < this->height; ++j) {
-				tmpIndex = r->getIndex(i, height-1-j);
-				tmpColor = r->frameBuffer[tmpIndex];
-				SetPixel(hdc, i, j, RGB(tmpColor[0], tmpColor[1], tmpColor[2]));
-			}
-		}
-		EndPaint(hwnd, &ps);
-		return 0;
-	}
-
 	//case WM_LBUTTONDOWN:  //用户单击鼠标左键
 	//{
 	//	char szPoint[56];
@@ -82,7 +67,11 @@ LRESULT Window::handleMessage(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	//}
 
 	case WM_DESTROY:  //正在销毁窗口
-		PostQuitMessage(0);
+		this->isClose = true;
+		return 0;
+
+	case WM_CLOSE:
+		this->isClose = true;
 		return 0;
 	}
 	return DefWindowProc(hwnd, msg, wParam, lParam);

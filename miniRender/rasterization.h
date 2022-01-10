@@ -17,6 +17,8 @@ public:
 	Rasterization(int width, int height);
 	void setScene(Scene* scene);
 	int getIndex(int row, int column);
+	void clearFrameBuffer();
+	void clearDepthBuffer();
 	bool render();
 
 private:

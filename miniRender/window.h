@@ -17,14 +17,17 @@ class Window:public BaseWindow {
 public:
 	HWND hwnd;
 	MSG msg;
-	unsigned int width;
-	unsigned int height;
-	vec2f mouseLocation;
+	HDC memdc;
+	HBITMAP bi;
+	bool isClose;
+	int width;
+	int height;
 	Rasterization *r;
 	
 	Window(Rasterization *r);
 	void windowInit();
 	void windowShow();
+	void handleMsg();
 	LRESULT handleMessage(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 };
 
