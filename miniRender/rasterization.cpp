@@ -5,7 +5,7 @@
 Rasterization::Rasterization(int width, int height)
 {
 	frameBuffer.resize(width*height);
-	depthBuffer.resize(width*height, std::numeric_limits<float>::max());
+	depthBuffer.resize(width*height, std::numeric_limits<float>::min());
 	this->width = width;
 	this->height = height;
 }
@@ -17,7 +17,7 @@ void Rasterization::setScene(Scene* scene)
 
 int Rasterization::getIndex(int r, int c)
 {
-	return r * width + c;
+	return c * width + r;
 }
 
 bool Rasterization::render()
@@ -32,15 +32,16 @@ bool Rasterization::render()
 							0,0,0,1
 			};
 			//MVP±ä»»
-			for (auto p : newTri.vertices) {
+			for (auto &p : newTri.vertices) {
 				vec4f pAfterModel = mat4f_multi_vec4f(mesh->model, vec4f{ p.posi[0],p.posi[1],p.posi[2],1 });
 				vec4f pAfterView = mat4f_multi_vec4f(scene->camera->view, pAfterModel);
 				vec4f pAfterProjection = mat4f_multi_vec4f(scene->camera->projection, pAfterView);
 				p.posi = { pAfterProjection[0],pAfterProjection[1],pAfterProjection[2] };
 			}
 			//ÊÓÍ¼±ä»»
-			for (auto p : newTri.vertices) {
+			for (auto &p : newTri.vertices) {
 				vec4f pAfterScreen = mat4f_multi_vec4f(screen, vec4f{ p.posi[0],p.posi[1],p.posi[2],1 });
+				p.posi = { pAfterScreen[0],pAfterScreen[1],pAfterScreen[2] };
 			}
 
 			mat4f screenAndProjection = mat4f_multi_mat4f(screen, scene->camera->projection);
@@ -57,6 +58,10 @@ void Rasterization::drawTriangleFilled(const Triangle &t, const mat4f &screenAnd
 	int maxY = std::max(t.vertices[0].posi[1], std::max(t.vertices[1].posi[1], t.vertices[2].posi[1]));
 	int minX = std::min(t.vertices[0].posi[0], std::min(t.vertices[1].posi[0], t.vertices[2].posi[0]));
 	int minY = std::min(t.vertices[0].posi[1], std::min(t.vertices[1].posi[1], t.vertices[2].posi[1]));
+	if (maxX >= width) maxX = width - 1;
+	if (maxY >= height) maxY = height - 1;
+	if (minX < 0) minX = 0;
+	if (minY < 0) minY = 0;
 
 	mat4f inverseSAP = inverse(screenAndProjection);
 	Triangle triView;
@@ -66,8 +71,8 @@ void Rasterization::drawTriangleFilled(const Triangle &t, const mat4f &screenAnd
 	}
 
 	for (int x = minX; x <= maxX; ++x) {
-		for (int y = minY; y <= maxY; ++y) {
-			if (!t.insideTriangle(vec2f{ x+0.5f, y+0.5f })) {
+ 		for (int y = minY; y <= maxY; ++y) {
+ 			if (!t.insideTriangle(vec2f{ x+0.5f, y+0.5f })) {
 				continue;
 			}
 
@@ -88,5 +93,4 @@ void Rasterization::drawTriangleFilled(const Triangle &t, const mat4f &screenAnd
 			frameBuffer[index] = { 0,255,0 };
 		}
 	}
-
 }

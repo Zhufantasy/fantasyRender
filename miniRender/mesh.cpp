@@ -6,7 +6,7 @@
 bool Triangle::insideTriangle(const vec2f &p) const
 {
 	vec3f beryCoord = calculateBarycentricCoordinates(p);
-	if (beryCoord[0] > 0 && beryCoord[1] > 0 && beryCoord[2] > 0) {
+	if (beryCoord[0] > 0.0f && beryCoord[1] > 0.0f && beryCoord[2] > 0.0f) {
 		return true;
 	}
 	else {
@@ -29,11 +29,11 @@ void Triangle::counterClockWise()
 vec3f Triangle::calculateBarycentricCoordinates(const vec2f &p) const
 {
 	vec3f p1 = this->vertices[0].posi, p2 = this->vertices[1].posi, p3 = this->vertices[2].posi;
-	float tmp1 = -(p[0] - p3[0])*(p1[1] - p3[1]) + (p[1] - p3[1])*(p1[0] - p3[0]);
-	float tmp2 = -(p2[0] - p3[0])*(p1[1] - p3[1]) + (p1[1] - p2[1])*(p1[0] - p3[0]);
-	float tmp3 = -(p[0] - p2[0])*(p3[1] - p2[1]) + (p[1] - p2[1])*(p3[0] - p2[0]);
-	float tmp4 = -(p1[0] - p2[0])*(p3[1] - p2[1]) + (p1[1] - p2[1])*(p3[0] - p2[0]);
-	return vec3f{ tmp1 / tmp2,tmp3 / tmp4,1 - tmp1 / tmp2 - tmp3 / tmp4 };
+	float tmp1 = (p1[1] - p3[1])*p[0] + (p3[0] - p1[0])*p[1] + p1[0] * p3[1] - p3[0] * p1[1];
+	float tmp2 = (p1[1] - p3[1])*p2[0] + (p3[0] - p1[0])*p2[1] + p1[0] * p3[1] - p3[0] * p1[1];
+	float tmp3 = (p1[1] - p2[1])*p[0] + (p2[0] - p1[0])*p[1] + p1[0] * p2[1] - p2[0] * p1[1];
+	float tmp4 = (p1[1] - p2[1])*p3[0] + (p2[0] - p1[0])*p3[1] + p1[0] * p2[1] - p2[0] * p1[1];
+	return vec3f{ 1 - tmp1 / tmp2 - tmp3 / tmp4,tmp1 / tmp2,tmp3 / tmp4 };
 }
 
 vec2f Triangle::interpolate(const vec3f &baryCoord, const vec2f& vert1, const vec2f& vert2, const vec2f& vert3)

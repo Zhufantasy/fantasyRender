@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
 		scene.add(tmpMesh);
 	}
 
-	Rasterization rasterization(10,5);
+	Rasterization rasterization(200,100);
 	rasterization.setScene(&scene);
 	rasterization.render();
 

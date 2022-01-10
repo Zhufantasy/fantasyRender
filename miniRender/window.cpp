@@ -60,7 +60,7 @@ LRESULT Window::handleMessage(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
 		for (int i = 0; i < this->width; ++i) {
 			for (int j = 0; j < this->height; ++j) {
-				tmpIndex = r->getIndex(i, j);
+				tmpIndex = r->getIndex(i, height-1-j);
 				tmpColor = r->frameBuffer[tmpIndex];
 				SetPixel(hdc, i, j, RGB(tmpColor[0], tmpColor[1], tmpColor[2]));
 			}
