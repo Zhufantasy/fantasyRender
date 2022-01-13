@@ -1,7 +1,7 @@
 #include"camera.h"
 #include"type.h"
 
-Camera::Camera() :posi(vec3f{ 0,0,0 }), up(vec3f{ 0,0,1 }), front(vec3f{ 0,0,-1 }), verticalAngle(90), ratio(1.2), zNear(0.1), zFar(100)
+Camera::Camera() :posi(vec3f{ 0,0,0 }), up(vec3f{ 0,1,0 }), front(vec3f{ 0,0,-1 }), verticalAngle(90), ratio(1), zNear(0.1), zFar(10000), pitch(0), yaw(-90)
 {
 	this->view = {
 		1,0,0,0,
@@ -26,13 +26,14 @@ Camera::Camera() :posi(vec3f{ 0,0,0 }), up(vec3f{ 0,0,1 }), front(vec3f{ 0,0,-1 
 	this->projection = mat4f_multi_mat4f(m2, m1);
 };
 
-Camera::Camera(vec3f posi, vec3f up, vec3f front) :posi(posi), up(up), front(front), verticalAngle(90), ratio(1.2), zNear(0.1), zFar(100)
+Camera::Camera(vec3f posi, vec3f up, vec3f front) :posi(posi), up(normalized(up)), front(normalized(front)), verticalAngle(90), ratio(1), zNear(0.1), zFar(10000), pitch(0), yaw(-90)
 {
-	vec3f frontMultiUp = crossProduct(front, up);
+	//需不需要单位向量？
+	vec3f frontMultiUp = normalized(crossProduct(front, up));
 	mat4f Rview = {
 		frontMultiUp[0],frontMultiUp[1],frontMultiUp[2],0,
 		up[0],up[1],up[2],0,
-		-front[0],-front[1],-front[0],0,
+		-front[0],-front[1],-front[2],0,
 		0,0,0,1
 	};
 	mat4f Tview = {
@@ -61,11 +62,11 @@ Camera::Camera(vec3f posi, vec3f up, vec3f front) :posi(posi), up(up), front(fro
 
 void Camera::updateView()
 {
-	vec3f frontMultiUp = crossProduct(front, up);
+	vec3f frontMultiUp = normalized(crossProduct(front, up));
 	mat4f Rview = {
 		frontMultiUp[0],frontMultiUp[1],frontMultiUp[2],0,
 		up[0],up[1],up[2],0,
-		-front[0],-front[1],-front[0],0,
+		-front[0],-front[1],-front[2],0,
 		0,0,0,1
 	};
 	mat4f Tview = {
@@ -93,4 +94,14 @@ void Camera::updateProjection()
 		0,0,0,1
 	};
 	this->projection = mat4f_multi_mat4f(m2, m1);
+}
+
+void Camera::handlePitchAndYawChange()
+{
+	front[0] = cos(angle2radians(yaw))*cos(angle2radians(pitch));
+	front[1] = sin(angle2radians(pitch));
+	front[2] = sin(angle2radians(yaw))*cos(angle2radians(pitch));
+	front = normalized(front);
+	vec3f right = normalized(crossProduct(front, vec3f{ 0,1,0 }));
+	up = normalized(crossProduct(right, front));
 }

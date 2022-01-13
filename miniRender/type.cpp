@@ -1,8 +1,20 @@
 #include "type.h"
 
+float norm(const vec3f &v)
+{
+	float tmp = v[0] * v[0] + v[1] * v[1] + v[2] * v[2];
+	return std::sqrt(tmp);
+}
+
+vec3f normalized(const vec3f &v)
+{
+	float tmp = norm(v);
+	return { v[0] / tmp,v[1] / tmp,v[2] / tmp };
+}
+
 vec3f crossProduct(const vec3f &a, const vec3f &b)
 {
-	return vec3f{ a[1] * b[2] - a[2] * b[1],a[2] * b[0] - a[0] * b[2],a[0] * b[1] - a[1] * b[0] };
+	return { a[1] * b[2] - a[2] * b[1],a[2] * b[0] - a[0] * b[2],a[0] * b[1] - a[1] * b[0] };
 }
 
 float dotProduct(const vec3f &a, const vec3f &b)
@@ -16,7 +28,7 @@ vec4f mat4f_multi_vec4f(const mat4f& m, const vec4f& v)
 	for (int i = 0; i < 4; ++i) {
 		tmp[i] = m[i][0] * v[0] + m[i][1] * v[1] + m[i][2] * v[2] + m[i][3] * v[3];
 	}
-	return vec4f{ tmp[0],tmp[1],tmp[2],tmp[3] };
+	return { tmp[0],tmp[1],tmp[2],tmp[3] };
 }
 
 mat4f mat4f_multi_mat4f(const mat4f& m1, const mat4f& m2)
@@ -144,4 +156,9 @@ mat4f inverse(const mat4f &m)
 			inverseTranspose[i][j] = adj[i][j] * invd;
 
 	return inverseTranspose;
+}
+
+float angle2radians(const float a)
+{
+	return a / 180.0 * M_PI;
 }

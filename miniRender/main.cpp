@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
 		scene.add(tmpMesh);
 	}
 
-	Rasterization rasterization(200,100);
+	Rasterization rasterization(1000,500);
 	rasterization.setScene(&scene);
 
 	//创建窗口
@@ -45,14 +45,16 @@ int main(int argc, char** argv) {
 
 	//渲染循环
 	while (!window.isClose) {
-		rasterization.clearFrameBuffer();
-		rasterization.clearDepthBuffer();
-
+		window.handleKeyboardAndMouseEvent();
 		rasterization.scene->camera->updateView();
 		rasterization.scene->camera->updateProjection();
 
+		rasterization.clearFrameBuffer();
+		rasterization.clearDepthBuffer();
+
 		rasterization.render();
-		window.windowShow();
+		window.windowDraw();
+		window.handleMsg();
 	}
 
 	return 0;

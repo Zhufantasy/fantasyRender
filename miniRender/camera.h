@@ -16,11 +16,14 @@ public:
 	float ratio;
 	float zNear;
 	float zFar;
+	float pitch; //¸©Ñö½Ç
+	float yaw; //Æ«º½½Ç
 
 	Camera();
 	Camera(vec3f posi, vec3f up, vec3f front);
 	void updateView();
 	void updateProjection();
+	void handlePitchAndYawChange();
 };
 
 

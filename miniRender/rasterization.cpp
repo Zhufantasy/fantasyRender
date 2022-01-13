@@ -105,7 +105,7 @@ void Rasterization::drawTriangleFilled(const Triangle &t, const mat4f &screenAnd
 			}
 
 			depthBuffer[index] = depthScreen;
-			frameBuffer[index] = { 0,255,0 };
+			frameBuffer[index] = { 255,0,0 };
 		}
 	}
 }

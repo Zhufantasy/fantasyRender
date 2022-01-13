@@ -2,6 +2,7 @@
 #define __TYPE_H__
 
 #include<array>
+#include<cmath>
 
 #define M_PI 3.14159265358979323846
 
@@ -13,7 +14,8 @@ using mat3f = std::array<std::array<float, 3>, 3>;
 using mat4f = std::array<std::array<float, 4>, 4>;
 
 
-
+float norm(const vec3f &v);
+vec3f normalized(const vec3f &v);
 vec3f crossProduct(const vec3f &a, const vec3f &b);
 float dotProduct(const vec3f &a, const vec3f &b);
 
@@ -29,6 +31,9 @@ float minor(const mat4f &m, int r, int c);
 float cofactor(const mat4f &m, int r, int c);
 mat4f adjoint(const mat4f &m);
 mat4f inverse(const mat4f &m);
+
+// ½Ç¶È×ª»¡¶È
+float angle2radians(const float a);
 
 #endif // !__TYPE_H__
 
