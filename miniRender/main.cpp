@@ -3,14 +3,20 @@
 #include "scene.h"
 #include "rasterization.h"
 #include "window.h"
-#include<string>
+#include "texture.h"
+#include "shader.h"
+#include<cstring>
 #include<vector>
 #include<array>
 
 int main(int argc, char** argv) {
 	//准备各种数据结构和数据
+	std::string texturePath = "./models/cube/wall.tga";
+	Texture texture(texturePath);
+
 	Camera camera;
 	Scene scene;
+	scene.setTexture(&texture);
 	scene.setCamera(&camera);
 
 	std::string objModelPath = "./models/cube/cube.obj";
@@ -25,11 +31,11 @@ int main(int argc, char** argv) {
 				t->vertices[j].posi[0] = mesh.Vertices[i + j].Position.X;
 				t->vertices[j].posi[1] = mesh.Vertices[i + j].Position.Y;
 				t->vertices[j].posi[2] = mesh.Vertices[i + j].Position.Z;
-				//t->normal[j][0] = mesh.Vertices[i + j].Normal.X;
-				//t->normal[j][1] = mesh.Vertices[i + j].Normal.Y;
-				//t->normal[j][2] = mesh.Vertices[i + j].Normal.Z;
-				//t->texCoords[j][0] = mesh.Vertices[i + j].TextureCoordinate.X;
-				//t->texCoords[j][1] = mesh.Vertices[i + j].TextureCoordinate.Y;
+				t->vertices[j].normal[0] = mesh.Vertices[i + j].Normal.X;
+				t->vertices[j].normal[1] = mesh.Vertices[i + j].Normal.Y;
+				t->vertices[j].normal[2] = mesh.Vertices[i + j].Normal.Z;
+				t->vertices[j].texCoord[0] = mesh.Vertices[i + j].TextureCoordinate.X;
+				t->vertices[j].texCoord[0] = mesh.Vertices[i + j].TextureCoordinate.Y;
 			}
 			tmpMesh->trianglesP.push_back(t);
 		}
@@ -38,6 +44,11 @@ int main(int argc, char** argv) {
 
 	Rasterization rasterization(1000,500);
 	rasterization.setScene(&scene);
+
+	ShaderProgram sp;
+	sp.vertexShader = noChange;
+	sp.fragmentShader = blinnPhong;
+	rasterization.setShaderProgram(&sp);
 
 	//创建窗口
 	Window window(&rasterization);

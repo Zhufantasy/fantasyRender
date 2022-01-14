@@ -14,3 +14,7 @@ void Scene::setCamera(Camera *cam)
 {
 	this->camera = cam;
 }
+
+void Scene::setTexture(Texture *t) {
+	this->texture = t;
+}

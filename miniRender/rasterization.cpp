@@ -15,6 +15,11 @@ void Rasterization::setScene(Scene* scene)
 	this->scene = scene;
 }
 
+void Rasterization::setShaderProgram(ShaderProgram *s)
+{
+	this->shader = s;
+}
+
 int Rasterization::getIndex(int r, int c)
 {
 	return c * width + r;
