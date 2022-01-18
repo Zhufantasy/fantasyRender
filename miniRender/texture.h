@@ -11,7 +11,7 @@ public:
 	TGAImage *image;
 
 	Texture(const std::string &str);
-	vec3f getColor(int u, int v); //输出的颜色顺序为RGB
+	vec3f getColor(float u, float v); //输出的颜色顺序为RGB
 	~Texture();
 };
 

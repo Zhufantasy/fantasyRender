@@ -22,6 +22,31 @@ float dotProduct(const vec3f &a, const vec3f &b)
 	return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
 }
 
+vec3f cwiseProduct(const vec3f &a, const vec3f &b)
+{
+	return { a[0] * b[0],a[1] * b[1],a[2] * b[2] };
+}
+
+vec3f vecPlus(const vec3f &a, const vec3f &b)
+{
+	return { a[0] + b[0],a[1] + b[1],a[2] + b[2] };
+}
+
+vec3f vecMinus(const vec3f &a, const vec3f &b)
+{
+	return { a[0] - b[0],a[1] - b[1],a[2] - b[2] };
+}
+
+vec3f vec_multi_num(const vec3f &v, float n)
+{
+	return { v[0] * n,v[1] * n,v[2] * n };
+}
+
+vec3f vec_divi_num(const vec3f &v, float n)
+{
+	return { v[0] / n,v[1] / n,v[2] / n };
+}
+
 vec4f mat4f_multi_vec4f(const mat4f& m, const vec4f& v)
 {
 	float tmp[4];

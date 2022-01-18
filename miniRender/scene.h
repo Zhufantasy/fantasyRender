@@ -12,7 +12,7 @@ class Scene {
 public:
 	std::vector<Light*> lights;
 	std::vector<Mesh*> meshs;
-	Camera* camera;
+	Camera *camera;
 	Texture *texture;
 
 	void add(Light *l);

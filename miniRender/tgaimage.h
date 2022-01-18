@@ -38,12 +38,12 @@ struct TGAColor {
 
     std::uint8_t& operator[](const int i) { return bgra[i]; }
 
-    TGAColor operator *(const double intensity) const {
-        TGAColor res = *this;
-        double clamped = std::max(0., std::min(intensity, 1.));
-        for (int i=0; i<4; i++) res.bgra[i] = bgra[i]*clamped;
-        return res;
-    }
+    //TGAColor operator *(const double intensity) const {
+    //    TGAColor res = *this;
+    //    double clamped = std::max(0., std::min(intensity, 1.));
+    //    for (int i=0; i<4; i++) res.bgra[i] = bgra[i]*clamped;
+    //    return res;
+    //}
 };
 
 class TGAImage {

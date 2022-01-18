@@ -1,7 +1,7 @@
 #include"camera.h"
 #include"type.h"
 
-Camera::Camera() :posi(vec3f{ 0,0,0 }), up(vec3f{ 0,1,0 }), front(vec3f{ 0,0,-1 }), verticalAngle(90), ratio(1), zNear(0.1), zFar(10000), pitch(0), yaw(-90)
+Camera::Camera() :posi(vec3f{ 0,0,0 }), up(vec3f{ 0,1,0 }), front(vec3f{ 0,0,-1 }), verticalAngle(90), ratio(1), zNear(0.1), zFar(1000000), pitch(0), yaw(-90)
 {
 	this->view = {
 		1,0,0,0,
@@ -10,7 +10,7 @@ Camera::Camera() :posi(vec3f{ 0,0,0 }), up(vec3f{ 0,1,0 }), front(vec3f{ 0,0,-1 
 		0,0,0,1
 	};
 
-	float angle = verticalAngle / 180 * M_PI;
+	float angle = verticalAngle / 180.0f * M_PI;
 	mat4f m1 = {
 		-zNear,0,0,0,
 		0,-zNear,0,0,
@@ -26,7 +26,7 @@ Camera::Camera() :posi(vec3f{ 0,0,0 }), up(vec3f{ 0,1,0 }), front(vec3f{ 0,0,-1 
 	this->projection = mat4f_multi_mat4f(m2, m1);
 };
 
-Camera::Camera(vec3f posi, vec3f up, vec3f front) :posi(posi), up(normalized(up)), front(normalized(front)), verticalAngle(90), ratio(1), zNear(0.1), zFar(10000), pitch(0), yaw(-90)
+Camera::Camera(vec3f posi, vec3f up, vec3f front) :posi(posi), up(normalized(up)), front(normalized(front)), verticalAngle(90), ratio(1.5), zNear(0.1), zFar(1000000), pitch(0), yaw(-90)
 {
 	//需不需要单位向量？
 	vec3f frontMultiUp = normalized(crossProduct(front, up));
@@ -44,7 +44,7 @@ Camera::Camera(vec3f posi, vec3f up, vec3f front) :posi(posi), up(normalized(up)
 	};
 	this->view = mat4f_multi_mat4f(Rview, Tview);
 
-	float angle = verticalAngle / 180 * M_PI;
+	float angle = verticalAngle / 180.0f * M_PI;
 	mat4f m1 = {
 		-zNear,0,0,0,
 		0,-zNear,0,0,
@@ -80,7 +80,7 @@ void Camera::updateView()
 
 void Camera::updateProjection()
 {
-	float angle = verticalAngle / 180 * M_PI;
+	float angle = verticalAngle / 180.0f * M_PI;
 	mat4f m1 = {
 		-zNear,0,0,0,
 		0,-zNear,0,0,

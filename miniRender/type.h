@@ -18,7 +18,12 @@ float norm(const vec3f &v);
 vec3f normalized(const vec3f &v);
 vec3f crossProduct(const vec3f &a, const vec3f &b);
 float dotProduct(const vec3f &a, const vec3f &b);
+vec3f cwiseProduct(const vec3f &a, const vec3f &b);
 
+vec3f vecPlus(const vec3f &a, const vec3f &b);
+vec3f vecMinus(const vec3f &a, const vec3f &b);
+vec3f vec_multi_num(const vec3f &v, float n);
+vec3f vec_divi_num(const vec3f &v, float n);
 vec4f mat4f_multi_vec4f(const mat4f& m, const vec4f& v);
 mat4f mat4f_multi_mat4f(const mat4f& m1, const mat4f& m2);
 

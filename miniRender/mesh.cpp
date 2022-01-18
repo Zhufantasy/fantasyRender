@@ -38,16 +38,16 @@ vec3f Triangle::calculateBarycentricCoordinates(const vec2f &p) const
 
 vec2f Triangle::interpolate(const vec3f &baryCoord, const vec2f& vert1, const vec2f& vert2, const vec2f& vert3)
 {
-	auto u = baryCoord[0] * vert1[0] + baryCoord[1] * vert2[0] + baryCoord[2] * vert3[0];
-	auto v = baryCoord[0] * vert1[1] + baryCoord[1] * vert2[1] + baryCoord[2] * vert3[1];
+	float u = baryCoord[0] * vert1[0] + baryCoord[1] * vert2[0] + baryCoord[2] * vert3[0];
+	float v = baryCoord[0] * vert1[1] + baryCoord[1] * vert2[1] + baryCoord[2] * vert3[1];
 	return vec2f{ u,v };
 }
 
 vec3f Triangle::interpolate(const vec3f &baryCoord, const vec3f& vert1, const vec3f& vert2, const vec3f& vert3)
 {
-	auto u = baryCoord[0] * vert1[0] + baryCoord[1] * vert2[0] + baryCoord[2] * vert3[0];
-	auto v = baryCoord[0] * vert1[1] + baryCoord[1] * vert2[1] + baryCoord[2] * vert3[1];
-	auto w = baryCoord[0] * vert1[2] + baryCoord[1] * vert2[2] + baryCoord[2] * vert3[2];
+	float u = baryCoord[0] * vert1[0] + baryCoord[1] * vert2[0] + baryCoord[2] * vert3[0];
+	float v = baryCoord[0] * vert1[1] + baryCoord[1] * vert2[1] + baryCoord[2] * vert3[1];
+	float w = baryCoord[0] * vert1[2] + baryCoord[1] * vert2[2] + baryCoord[2] * vert3[2];
 	return vec3f{ u,v,w };
 }
 

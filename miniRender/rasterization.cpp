@@ -44,6 +44,10 @@ bool Rasterization::render()
 {
 	for (auto mesh : scene->meshs) {
 		for (auto triangle : mesh->trianglesP) {
+			for (auto &v : triangle->vertices) {
+				v.posi = this->shader->vertexShader(v.posi);
+			}
+
 			Triangle newTri = *triangle;
 			mat4f screen = {
 							width*0.5,0,0,width*0.5,
@@ -84,7 +88,7 @@ void Rasterization::drawTriangleFilled(const Triangle &t, const mat4f &screenAnd
 	if (minY < 0) minY = 0;
 
 	mat4f inverseSAP = inverse(screenAndProjection);
-	Triangle triView;
+	Triangle triView = t;
 	for (int i = 0; i < 3; ++i) {
 		vec4f tmp = mat4f_multi_vec4f(inverseSAP, vec4f{ t.vertices[i].posi[0],t.vertices[i].posi[1],t.vertices[i].posi[2],1 });
 		triView.vertices[i].posi = { tmp[0],tmp[1],tmp[2] };
@@ -102,15 +106,22 @@ void Rasterization::drawTriangleFilled(const Triangle &t, const mat4f &screenAnd
 			vec3f baryCoord = t.calculateBarycentricCoordinates(vec2f{ x + 0.5f, y + 0.5f });
 			float depthView = 1.0 / (baryCoord[0] / triView.vertices[0].posi[2] + baryCoord[1] / triView.vertices[1].posi[2] + baryCoord[2] / triView.vertices[2].posi[2]);
 			float depthScreen = baryCoord[0] * t.vertices[0].posi[2] / triView.vertices[0].posi[2] + 
-								baryCoord[1] * t.vertices[1].posi[2] / triView.vertices[0].posi[2] + 
-								baryCoord[2] * t.vertices[2].posi[2] / triView.vertices[0].posi[2];
+								baryCoord[1] * t.vertices[1].posi[2] / triView.vertices[1].posi[2] + 
+								baryCoord[2] * t.vertices[2].posi[2] / triView.vertices[2].posi[2];
 			depthScreen *= depthView;
-			if (depthScreen <= depthBuffer[index]) {
+			if (depthScreen < depthBuffer[index]) {
 				continue;
 			}
 
+			//²åÖµ¼ÆËãÊôÐÔ
+			vec4f tmp = mat4f_multi_vec4f(inverseSAP, vec4f{ x + 0.5f,y + 0.5f,depthScreen,1 });
+			vec3f viewPos = { tmp[0],tmp[1],depthView };
+			vec3f baryCoordView = triView.calculateBarycentricCoordinates({ tmp[0], tmp[1] });
+			vec3f normalView = triView.interpolate(baryCoordView, triView.vertices[0].normal, triView.vertices[1].normal, triView.vertices[2].normal);
+			vec2f texCoordView = triView.interpolate(baryCoordView, triView.vertices[0].texCoord, triView.vertices[1].texCoord, triView.vertices[2].texCoord);
+
 			depthBuffer[index] = depthScreen;
-			frameBuffer[index] = { 255,0,0 };
+			frameBuffer[index] = this->shader->fragmentShader(scene, viewPos, { -1,-1,-1 }, normalView, texCoordView);
 		}
 	}
 }

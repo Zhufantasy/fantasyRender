@@ -9,9 +9,15 @@
 #include<vector>
 #include<array>
 
+
+
+std::string objModelPath = "./models/cube/cube.obj";
+std::string texturePath = "./models/cube/wall.tga";
+
+
+
 int main(int argc, char** argv) {
 	//准备各种数据结构和数据
-	std::string texturePath = "./models/cube/wall.tga";
 	Texture texture(texturePath);
 
 	Camera camera;
@@ -19,7 +25,9 @@ int main(int argc, char** argv) {
 	scene.setTexture(&texture);
 	scene.setCamera(&camera);
 
-	std::string objModelPath = "./models/cube/cube.obj";
+	Light light1{ {10,10,10},{500,500,500} };
+	scene.add(&light1);
+
 	objl::Loader loader;
 	bool loadout = loader.LoadFile(objModelPath);
 
@@ -42,7 +50,7 @@ int main(int argc, char** argv) {
 		scene.add(tmpMesh);
 	}
 
-	Rasterization rasterization(1000,500);
+	Rasterization rasterization(1000,800);
 	rasterization.setScene(&scene);
 
 	ShaderProgram sp;

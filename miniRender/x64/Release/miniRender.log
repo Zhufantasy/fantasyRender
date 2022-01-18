@@ -1,25 +1,8 @@
 ﻿  main.cpp
 d:\vs2017_project\fantasyrender\minirender\obj_loader.h(947): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-d:\vs2017_project\fantasyrender\minirender\main.cpp(28): error C2039: “normal”: 不是“Triangle”的成员
-  d:\vs2017_project\fantasyrender\minirender\mesh.h(17): note: 参见“Triangle”的声明
-d:\vs2017_project\fantasyrender\minirender\main.cpp(29): error C2039: “normal”: 不是“Triangle”的成员
-  d:\vs2017_project\fantasyrender\minirender\mesh.h(17): note: 参见“Triangle”的声明
-d:\vs2017_project\fantasyrender\minirender\main.cpp(30): error C2039: “normal”: 不是“Triangle”的成员
-  d:\vs2017_project\fantasyrender\minirender\mesh.h(17): note: 参见“Triangle”的声明
-d:\vs2017_project\fantasyrender\minirender\main.cpp(31): error C2039: “texCoords”: 不是“Triangle”的成员
-  d:\vs2017_project\fantasyrender\minirender\mesh.h(17): note: 参见“Triangle”的声明
-d:\vs2017_project\fantasyrender\minirender\main.cpp(32): error C2039: “texCoords”: 不是“Triangle”的成员
-  d:\vs2017_project\fantasyrender\minirender\mesh.h(17): note: 参见“Triangle”的声明
-  shader.cpp
-  texture.cpp
-d:\vs2017_project\fantasyrender\minirender\tgaimage.h(44): warning C4244: “=”: 从“double”转换到“uint8_t”，可能丢失数据
-d:\vs2017_project\fantasyrender\minirender\texture.cpp(15): error C2397: 从“double”转换到“_Ty”需要收缩转换
-          with
-          [
-              _Ty=float
-          ]
-d:\vs2017_project\fantasyrender\minirender\texture.cpp(15): warning C4244: “初始化”: 从“double”转换到“_Ty”，可能丢失数据
-          with
-          [
-              _Ty=float
-          ]
+  正在生成代码
+  1 of 1343 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  miniRender.vcxproj -> D:\vs2017_project\fantasyRender\x64\Release\fantasyRender.exe
