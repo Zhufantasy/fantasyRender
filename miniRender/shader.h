@@ -10,6 +10,8 @@ struct ShaderProgram {
 	vec3f(*fragmentShader)(Scene *scene, const vec3f &viewPos, const vec3f &color, const vec3f &normal, const vec2f &texCoord);
 };
 
+
+
 //vertex shader
 vec3f noChange(vec3f &vertex);
 

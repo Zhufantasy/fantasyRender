@@ -25,7 +25,7 @@ public:
 	bool render();
 
 private:
-	void drawTriangleFilled(const Triangle &t,const mat4f &screenAndProjection);
+	void drawTriangleFilled(const Triangle &t, const Triangle &triView);
 };
 
 

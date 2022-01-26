@@ -24,6 +24,8 @@ public:
 	//插值
 	vec2f interpolate(const vec3f &baryCoord, const vec2f& vert1, const vec2f& vert2, const vec2f& vert3);
 	vec3f interpolate(const vec3f &baryCoord, const vec3f& vert1, const vec3f& vert2, const vec3f& vert3);
+	//计算法向量
+	void calculateNormal();
 
 private:
 	//将三角形三个顶点修改为逆时针方向

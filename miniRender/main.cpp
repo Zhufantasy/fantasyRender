@@ -11,8 +11,8 @@
 
 
 
-std::string objModelPath = "./models/cube/cube.obj";
-std::string texturePath = "./models/cube/wall.tga";
+std::string objModelPath = "./models/spot/spot_triangulated_good.obj";
+std::string texturePath = "./models/spot/spot_texture.tga";
 
 
 
@@ -38,7 +38,7 @@ int main(int argc, char** argv) {
 			for (int j = 0; j < 3; ++j) {
 				t->vertices[j].posi[0] = mesh.Vertices[i + j].Position.X;
 				t->vertices[j].posi[1] = mesh.Vertices[i + j].Position.Y;
-				t->vertices[j].posi[2] = mesh.Vertices[i + j].Position.Z;
+				t->vertices[j].posi[2] = - mesh.Vertices[i + j].Position.Z;
 				t->vertices[j].normal[0] = mesh.Vertices[i + j].Normal.X;
 				t->vertices[j].normal[1] = mesh.Vertices[i + j].Normal.Y;
 				t->vertices[j].normal[2] = mesh.Vertices[i + j].Normal.Z;

@@ -1,7 +1,6 @@
 #include"camera.h"
-#include"type.h"
 
-Camera::Camera() :posi(vec3f{ 0,0,0 }), up(vec3f{ 0,1,0 }), front(vec3f{ 0,0,-1 }), verticalAngle(90), ratio(1), zNear(0.1), zFar(1000000), pitch(0), yaw(-90)
+Camera::Camera() :posi(vec3f{ 0,0,0 }), up(vec3f{ 0,1,0 }), front(vec3f{ 0,0,-1 }), verticalAngle(90), ratio(1), zNear(0.1), zFar(100), pitch(0), yaw(-90)
 {
 	this->view = {
 		1,0,0,0,
@@ -20,13 +19,13 @@ Camera::Camera() :posi(vec3f{ 0,0,0 }), up(vec3f{ 0,1,0 }), front(vec3f{ 0,0,-1 
 	mat4f m2 = {
 		1 / zNear / tan(angle / 2) / ratio,0,0,0,
 		0,1 / zNear / tan(angle / 2),0,0,
-		0,0,1 / (zFar - zNear),0,
+		0,0,1 / (zFar - zNear),0.5*(zFar + zNear) / (zFar - zNear),
 		0,0,0,1
 	};
 	this->projection = mat4f_multi_mat4f(m2, m1);
 };
 
-Camera::Camera(vec3f posi, vec3f up, vec3f front) :posi(posi), up(normalized(up)), front(normalized(front)), verticalAngle(90), ratio(1.5), zNear(0.1), zFar(1000000), pitch(0), yaw(-90)
+Camera::Camera(vec3f p, vec3f u, vec3f f) :posi(p), up(normalized(u)), front(normalized(f)), verticalAngle(90), ratio(1), zNear(0.1), zFar(100), pitch(0), yaw(-90)
 {
 	//需不需要单位向量？
 	vec3f frontMultiUp = normalized(crossProduct(front, up));
@@ -54,7 +53,7 @@ Camera::Camera(vec3f posi, vec3f up, vec3f front) :posi(posi), up(normalized(up)
 	mat4f m2 = {
 		1 / zNear / tan(angle / 2) / ratio,0,0,0,
 		0,1 / zNear / tan(angle / 2),0,0,
-		0,0,1 / (zFar - zNear),0,
+		0,0,1 / (zFar - zNear),0.5*(zFar + zNear) / (zFar - zNear),
 		0,0,0,1
 	};
 	this->projection = mat4f_multi_mat4f(m2, m1);
@@ -84,13 +83,13 @@ void Camera::updateProjection()
 	mat4f m1 = {
 		-zNear,0,0,0,
 		0,-zNear,0,0,
-		0,0,-zNear - zFar,-zNear * zFar,
+		0,0,- zNear - zFar,-zNear * zFar,
 		0,0,1,0
 	};
 	mat4f m2 = {
 		1 / zNear / tan(angle / 2) / ratio,0,0,0,
 		0,1 / zNear / tan(angle / 2),0,0,
-		0,0,1 / (zFar - zNear),0,
+		0,0,1 / (zFar - zNear),0.5*(zFar + zNear) / (zFar - zNear),
 		0,0,0,1
 	};
 	this->projection = mat4f_multi_mat4f(m2, m1);

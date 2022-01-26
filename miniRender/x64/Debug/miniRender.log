@@ -1,4 +1,38 @@
 ﻿D:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: 中间目录(x64\Debug\)包含从另一个项目(miniRender.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
-  main.cpp
-d:\vs2017_project\fantasyrender\minirender\obj_loader.h(947): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+  camera.cpp
+d:\vs2017_project\fantasyrender\minirender\camera.cpp(4): warning C4305: “初始化”: 从“double”到“float”截断
+d:\vs2017_project\fantasyrender\minirender\camera.cpp(12): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\vs2017_project\fantasyrender\minirender\camera.cpp(24): warning C4838: 从“double”转换到“_Ty”需要收缩转换
+          with
+          [
+              _Ty=float
+          ]
+d:\vs2017_project\fantasyrender\minirender\camera.cpp(22): warning C4244: “初始化”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+d:\vs2017_project\fantasyrender\minirender\camera.cpp(29): warning C4305: “初始化”: 从“double”到“float”截断
+d:\vs2017_project\fantasyrender\minirender\camera.cpp(46): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\vs2017_project\fantasyrender\minirender\camera.cpp(58): warning C4838: 从“double”转换到“_Ty”需要收缩转换
+          with
+          [
+              _Ty=float
+          ]
+d:\vs2017_project\fantasyrender\minirender\camera.cpp(56): warning C4244: “初始化”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+d:\vs2017_project\fantasyrender\minirender\camera.cpp(82): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\vs2017_project\fantasyrender\minirender\camera.cpp(94): warning C4838: 从“double”转换到“_Ty”需要收缩转换
+          with
+          [
+              _Ty=float
+          ]
+d:\vs2017_project\fantasyrender\minirender\camera.cpp(92): warning C4244: “初始化”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
   miniRender.vcxproj -> D:\vs2017_project\fantasyRender\x64\Debug\fantasyRender.exe

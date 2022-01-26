@@ -51,9 +51,6 @@
     <ClCompile Include="rasterization.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="window.cpp">
-      <Filter>源文件\platform\windows</Filter>
-    </ClCompile>
     <ClCompile Include="type.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -62,6 +59,9 @@
     </ClCompile>
     <ClCompile Include="texture.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="window_windows.cpp">
+      <Filter>源文件\platform\windows</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

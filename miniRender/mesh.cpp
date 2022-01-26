@@ -36,6 +36,11 @@ vec3f Triangle::calculateBarycentricCoordinates(const vec2f &p) const
 	return vec3f{ 1 - tmp1 / tmp2 - tmp3 / tmp4,tmp1 / tmp2,tmp3 / tmp4 };
 }
 
+void Triangle::calculateNormal()
+{
+	
+}
+
 vec2f Triangle::interpolate(const vec3f &baryCoord, const vec2f& vert1, const vec2f& vert2, const vec2f& vert3)
 {
 	float u = baryCoord[0] * vert1[0] + baryCoord[1] * vert2[0] + baryCoord[2] * vert3[0];
