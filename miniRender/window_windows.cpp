@@ -191,7 +191,7 @@ void Window::handleKeyboardAndMouseEvent()
 		vec3f mouseOffset = { (mouseLocNew[0] - mouseLocOld[0])*0.5,(mouseLocNew[1] - mouseLocOld[1])*0.5 };
 		mouseLocOld = mouseLocNew;
 		r->scene->camera->yaw += mouseOffset[0];
-		r->scene->camera->pitch += mouseOffset[1];
+		r->scene->camera->pitch -= mouseOffset[1];
 		if (r->scene->camera->pitch > 89) {
 			r->scene->camera->pitch = 89;
 		}
@@ -202,8 +202,8 @@ void Window::handleKeyboardAndMouseEvent()
 	}
 	if (wheelAngle) {
 		r->scene->camera->verticalAngle += wheelAngle*0.01;
-		if (r->scene->camera->verticalAngle > 179)
-			r->scene->camera->verticalAngle = 179;
+		if (r->scene->camera->verticalAngle > 90)
+			r->scene->camera->verticalAngle = 90;
 		if (r->scene->camera->verticalAngle < 1)
 			r->scene->camera->verticalAngle = 1;
 		wheelAngle = 0;

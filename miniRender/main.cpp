@@ -11,8 +11,8 @@
 
 
 
-std::string objModelPath = "./models/spot/spot_triangulated_good.obj";
-std::string texturePath = "./models/spot/spot_texture.tga";
+std::string objModelPath = "./models/cube/cube.obj";
+std::string texturePath = "./models/cube/wall.tga";
 
 
 

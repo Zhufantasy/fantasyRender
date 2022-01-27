@@ -1,6 +1,6 @@
 #include"camera.h"
 
-Camera::Camera() :posi(vec3f{ 0,0,2 }), up(vec3f{ 0,1,0 }), front(vec3f{ 0,0,-1 }), verticalAngle(90), ratio(1), zNear(0.1), zFar(100), pitch(0), yaw(-90)
+Camera::Camera() :posi(vec3f{ 0,0,2 }), up(vec3f{ 0,1,0 }), front(vec3f{ 0,0,-1 }), verticalAngle(45), ratio(1), zNear(0.1), zFar(100), pitch(0), yaw(-90)
 {
 	this->view = {
 		1,0,0,0,
@@ -25,7 +25,7 @@ Camera::Camera() :posi(vec3f{ 0,0,2 }), up(vec3f{ 0,1,0 }), front(vec3f{ 0,0,-1 
 	this->projection = mat4f_multi_mat4f(m2, m1);
 };
 
-Camera::Camera(vec3f p, vec3f u, vec3f f) :posi(p), up(normalized(u)), front(normalized(f)), verticalAngle(90), ratio(1), zNear(0.1), zFar(100), pitch(0), yaw(-90)
+Camera::Camera(vec3f p, vec3f u, vec3f f) :posi(p), up(normalized(u)), front(normalized(f)), verticalAngle(45), ratio(1), zNear(0.1), zFar(100), pitch(0), yaw(-90)
 {
 	//需不需要单位向量？
 	vec3f frontMultiUp = normalized(crossProduct(front, up));
