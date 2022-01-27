@@ -25,8 +25,10 @@ int main(int argc, char** argv) {
 	scene.setTexture(&texture);
 	scene.setCamera(&camera);
 
-	Light light1{ {10,10,10},{500,500,500} };
+	Light light1{ {20,20,20},{500,500,500} };
+	Light light2{ {-20,20,0},{500,500,500} };
 	scene.add(&light1);
+	scene.add(&light2);
 
 	objl::Loader loader;
 	bool loadout = loader.LoadFile(objModelPath);
@@ -38,12 +40,12 @@ int main(int argc, char** argv) {
 			for (int j = 0; j < 3; ++j) {
 				t->vertices[j].posi[0] = mesh.Vertices[i + j].Position.X;
 				t->vertices[j].posi[1] = mesh.Vertices[i + j].Position.Y;
-				t->vertices[j].posi[2] = - mesh.Vertices[i + j].Position.Z;
+				t->vertices[j].posi[2] =  mesh.Vertices[i + j].Position.Z;
 				t->vertices[j].normal[0] = mesh.Vertices[i + j].Normal.X;
 				t->vertices[j].normal[1] = mesh.Vertices[i + j].Normal.Y;
 				t->vertices[j].normal[2] = mesh.Vertices[i + j].Normal.Z;
 				t->vertices[j].texCoord[0] = mesh.Vertices[i + j].TextureCoordinate.X;
-				t->vertices[j].texCoord[0] = mesh.Vertices[i + j].TextureCoordinate.Y;
+				t->vertices[j].texCoord[1] = mesh.Vertices[i + j].TextureCoordinate.Y;
 			}
 			tmpMesh->trianglesP.push_back(t);
 		}

@@ -1,6 +1,6 @@
 #include"camera.h"
 
-Camera::Camera() :posi(vec3f{ 0,0,0 }), up(vec3f{ 0,1,0 }), front(vec3f{ 0,0,-1 }), verticalAngle(90), ratio(1), zNear(0.1), zFar(100), pitch(0), yaw(-90)
+Camera::Camera() :posi(vec3f{ 0,0,2 }), up(vec3f{ 0,1,0 }), front(vec3f{ 0,0,-1 }), verticalAngle(90), ratio(1), zNear(0.1), zFar(100), pitch(0), yaw(-90)
 {
 	this->view = {
 		1,0,0,0,
