@@ -1,8 +1,8 @@
-# Install script for directory: D:/vs2017_project/fantasyRender/1
+# Install script for directory: D:/vscode_project/fantasyRender
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "D:/vs2017_project/fantasyRender/1/build")
+  set(CMAKE_INSTALL_PREFIX "D:/vscode_project/fantasyRender/build")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/vs2017_project/fantasyRender/1/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/vscode_project/fantasyRender/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

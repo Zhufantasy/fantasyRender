@@ -11,13 +11,13 @@
 
 
 
-std::string objModelPath = "../../models/cube/cube.obj";
-std::string texturePath = "../../models/cube/wall.tga";
+std::string objModelPath = "../../models/diablo3_pose/diablo3_pose.obj";
+std::string texturePath = "../../models/diablo3_pose/diablo3_pose_diffuse.tga";
 
 
 
 int main(int argc, char** argv) {
-	//×¼±¸¸÷ÖÖÊý¾Ý½á¹¹ºÍÊý¾Ý
+	//×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	Texture texture(texturePath);
 
 	Camera camera;
@@ -60,11 +60,11 @@ int main(int argc, char** argv) {
 	sp.fragmentShader = blinnPhong;
 	rasterization.setShaderProgram(&sp);
 
-	//´´½¨´°¿Ú
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	Window window(&rasterization);
 	window.windowInit();
 
-	//äÖÈ¾Ñ­»·
+	//ï¿½ï¿½È¾Ñ­ï¿½ï¿½
 	while (!window.isClose) {
 		window.handleKeyboardAndMouseEvent();
 		rasterization.scene->camera->updateView();

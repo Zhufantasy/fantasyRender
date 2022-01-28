@@ -1,43 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="D:\vs2017_project\fantasyRender\1\camera.cpp" />
-    <ClCompile Include="D:\vs2017_project\fantasyRender\1\main.cpp" />
-    <ClCompile Include="D:\vs2017_project\fantasyRender\1\mesh.cpp" />
-    <ClCompile Include="D:\vs2017_project\fantasyRender\1\rasterization.cpp" />
-    <ClCompile Include="D:\vs2017_project\fantasyRender\1\scene.cpp" />
-    <ClCompile Include="D:\vs2017_project\fantasyRender\1\shader.cpp" />
-    <ClCompile Include="D:\vs2017_project\fantasyRender\1\texture.cpp" />
-    <ClCompile Include="D:\vs2017_project\fantasyRender\1\tgaimage.cpp" />
-    <ClCompile Include="D:\vs2017_project\fantasyRender\1\type.cpp" />
-    <ClCompile Include="D:\vs2017_project\fantasyRender\1\platform\windows\window_windows.cpp">
+    <ClCompile Include="D:\vscode_project\fantasyRender\camera.cpp" />
+    <ClCompile Include="D:\vscode_project\fantasyRender\main.cpp" />
+    <ClCompile Include="D:\vscode_project\fantasyRender\mesh.cpp" />
+    <ClCompile Include="D:\vscode_project\fantasyRender\rasterization.cpp" />
+    <ClCompile Include="D:\vscode_project\fantasyRender\scene.cpp" />
+    <ClCompile Include="D:\vscode_project\fantasyRender\shader.cpp" />
+    <ClCompile Include="D:\vscode_project\fantasyRender\texture.cpp" />
+    <ClCompile Include="D:\vscode_project\fantasyRender\tgaimage.cpp" />
+    <ClCompile Include="D:\vscode_project\fantasyRender\type.cpp" />
+    <ClCompile Include="D:\vscode_project\fantasyRender\platform\windows\window_windows.cpp">
       <Filter>platform\windows</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="D:\vs2017_project\fantasyRender\1\type.h" />
-    <ClInclude Include="D:\vs2017_project\fantasyRender\1\camera.h" />
-    <ClInclude Include="D:\vs2017_project\fantasyRender\1\light.h" />
-    <ClInclude Include="D:\vs2017_project\fantasyRender\1\mesh.h" />
-    <ClInclude Include="D:\vs2017_project\fantasyRender\1\OBJ_Loader.h" />
-    <ClInclude Include="D:\vs2017_project\fantasyRender\1\scene.h" />
-    <ClInclude Include="D:\vs2017_project\fantasyRender\1\shader.h" />
-    <ClInclude Include="D:\vs2017_project\fantasyRender\1\texture.h" />
-    <ClInclude Include="D:\vs2017_project\fantasyRender\1\tgaimage.h" />
-    <ClInclude Include="D:\vs2017_project\fantasyRender\1\rasterization.h" />
-    <ClInclude Include="D:\vs2017_project\fantasyRender\1\platform\windows\window.h">
+    <ClInclude Include="D:\vscode_project\fantasyRender\type.h" />
+    <ClInclude Include="D:\vscode_project\fantasyRender\camera.h" />
+    <ClInclude Include="D:\vscode_project\fantasyRender\light.h" />
+    <ClInclude Include="D:\vscode_project\fantasyRender\mesh.h" />
+    <ClInclude Include="D:\vscode_project\fantasyRender\OBJ_Loader.h" />
+    <ClInclude Include="D:\vscode_project\fantasyRender\scene.h" />
+    <ClInclude Include="D:\vscode_project\fantasyRender\shader.h" />
+    <ClInclude Include="D:\vscode_project\fantasyRender\texture.h" />
+    <ClInclude Include="D:\vscode_project\fantasyRender\tgaimage.h" />
+    <ClInclude Include="D:\vscode_project\fantasyRender\rasterization.h" />
+    <ClInclude Include="D:\vscode_project\fantasyRender\platform\windows\window.h">
       <Filter>platform\windows</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\vs2017_project\fantasyRender\1\CMakeLists.txt" />
+    <CustomBuild Include="D:\vscode_project\fantasyRender\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="platform">
-      <UniqueIdentifier>{8FDB0DE2-A4F3-3C72-BC94-7751BA81DD90}</UniqueIdentifier>
+      <UniqueIdentifier>{95F3B807-AE72-3190-BA0E-F59256B66DF1}</UniqueIdentifier>
     </Filter>
     <Filter Include="platform\windows">
-      <UniqueIdentifier>{95A3040D-4B0A-354A-A8DF-A32688200DDE}</UniqueIdentifier>
+      <UniqueIdentifier>{ADEBE74D-808D-3E13-9FFB-6F9EC3EEEED4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

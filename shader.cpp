@@ -36,13 +36,13 @@ vec3f blinnPhong(Scene *scene, const vec3f &viewPos, const vec3f &color, const v
 		vec3f specular = cwiseProduct(ks, light->intensity);
 		specular = vec_divi_num(specular, r2);
 		specular = vec_multi_num(specular, std::pow(std::max(0.0f, dotProduct(n, h)), p));
-		//res = vecPlus(res, specular);
+		res = vecPlus(res, specular);
 	}
 
 	vec3f ambient = cwiseProduct(ka, kd);
-	//res = vecPlus(res, ambient);
+	res = vecPlus(res, ambient);
 
-	//Ê¹ÑÕÉ«µÄ·¶Î§±£³ÖÔÚ0~255Ö®¼ä
+	//Ê¹ï¿½ï¿½É«ï¿½Ä·ï¿½Î§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0~255Ö®ï¿½ï¿½
 	for (float &a : res) {
 		if (a > 1) a = 1;
 		if (a < 0) a = 0;
