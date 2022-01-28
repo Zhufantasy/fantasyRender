@@ -1,0 +1,146 @@
+﻿  Building Custom Rule D:/vs2017_project/fantasyRender/1/CMakeLists.txt
+  camera.cpp
+D:\vs2017_project\fantasyRender\1\camera.cpp(4): warning C4305: “初始化”: 从“double”到“float”截断
+D:\vs2017_project\fantasyRender\1\camera.cpp(12): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\vs2017_project\fantasyRender\1\camera.cpp(24): warning C4838: 从“double”转换到“_Ty”需要收缩转换
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\camera.cpp(22): warning C4244: “初始化”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\camera.cpp(29): warning C4305: “初始化”: 从“double”到“float”截断
+D:\vs2017_project\fantasyRender\1\camera.cpp(46): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\vs2017_project\fantasyRender\1\camera.cpp(58): warning C4838: 从“double”转换到“_Ty”需要收缩转换
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\camera.cpp(56): warning C4244: “初始化”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\camera.cpp(82): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\vs2017_project\fantasyRender\1\camera.cpp(94): warning C4838: 从“double”转换到“_Ty”需要收缩转换
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\camera.cpp(92): warning C4244: “初始化”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+  main.cpp
+d:\vs2017_project\fantasyrender\1\OBJ_Loader.h(947): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+  mesh.cpp
+  rasterization.cpp
+D:\vs2017_project\fantasyRender\1\rasterization.cpp(50): warning C4838: 从“double”转换到“_Ty”需要收缩转换
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\rasterization.cpp(46): warning C4244: “初始化”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\rasterization.cpp(47): warning C4244: “初始化”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\rasterization.cpp(95): warning C4244: “初始化”: 从“const _Ty”转换到“int”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\rasterization.cpp(96): warning C4244: “初始化”: 从“const _Ty”转换到“int”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\rasterization.cpp(97): warning C4244: “初始化”: 从“const _Ty”转换到“int”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\rasterization.cpp(98): warning C4244: “初始化”: 从“const _Ty”转换到“int”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\rasterization.cpp(114): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+  scene.cpp
+  shader.cpp
+D:\vs2017_project\fantasyRender\1\shader.cpp(14): warning C4305: “初始化”: 从“double”到“_Ty”截断
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\shader.cpp(16): warning C4305: “初始化”: 从“double”到“_Ty”截断
+          with
+          [
+              _Ty=float
+          ]
+  texture.cpp
+D:\vs2017_project\fantasyRender\1\texture.cpp(12): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+D:\vs2017_project\fantasyRender\1\texture.cpp(13): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+  tgaimage.cpp
+D:\vs2017_project\fantasyRender\1\tgaimage.cpp(289): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+D:\vs2017_project\fantasyRender\1\tgaimage.cpp(294): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+  type.cpp
+D:\vs2017_project\fantasyRender\1\type.cpp(213): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+  window_windows.cpp
+D:\vs2017_project\fantasyRender\1\platform\windows\window_windows.cpp(75): warning C4244: “=”: 从“_Ty”转换到“unsigned char”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\platform\windows\window_windows.cpp(76): warning C4244: “=”: 从“_Ty”转换到“unsigned char”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\platform\windows\window_windows.cpp(77): warning C4244: “=”: 从“_Ty”转换到“unsigned char”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\platform\windows\window_windows.cpp(166): warning C4244: “+=”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\platform\windows\window_windows.cpp(171): warning C4244: “-=”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\platform\windows\window_windows.cpp(177): warning C4244: “-=”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\platform\windows\window_windows.cpp(183): warning C4244: “+=”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\platform\windows\window_windows.cpp(191): warning C4838: 从“double”转换到“_Ty”需要收缩转换
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\platform\windows\window_windows.cpp(191): warning C4244: “初始化”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+D:\vs2017_project\fantasyRender\1\platform\windows\window_windows.cpp(204): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+  正在生成代码...
+  fantasyRender.vcxproj -> D:\vs2017_project\fantasyRender\1\build\Release\fantasyRender.exe

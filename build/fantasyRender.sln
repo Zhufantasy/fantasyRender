@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fantasyRender", "fantasyRender.vcxproj", "{0931497D-2599-30D6-A6B9-A76E5320A472}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7EC0CDA3-5FBA-31FA-A8AC-40E0C6BA94AD} = {7EC0CDA3-5FBA-31FA-A8AC-40E0C6BA94AD}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxproj", "{66A5F061-3565-3E08-B6D1-482E524A7675}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7EC0CDA3-5FBA-31FA-A8AC-40E0C6BA94AD} = {7EC0CDA3-5FBA-31FA-A8AC-40E0C6BA94AD}
+		{0931497D-2599-30D6-A6B9-A76E5320A472} = {0931497D-2599-30D6-A6B9-A76E5320A472}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vcxproj", "{7EC0CDA3-5FBA-31FA-A8AC-40E0C6BA94AD}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0931497D-2599-30D6-A6B9-A76E5320A472}.Release|x64.ActiveCfg = Release|x64
+		{0931497D-2599-30D6-A6B9-A76E5320A472}.Release|x64.Build.0 = Release|x64
+		{66A5F061-3565-3E08-B6D1-482E524A7675}.Release|x64.ActiveCfg = Release|x64
+		{7EC0CDA3-5FBA-31FA-A8AC-40E0C6BA94AD}.Release|x64.ActiveCfg = Release|x64
+		{7EC0CDA3-5FBA-31FA-A8AC-40E0C6BA94AD}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E13FCC0A-36AC-3C3F-AD3E-B1025E42FCFF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
