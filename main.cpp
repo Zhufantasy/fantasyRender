@@ -2,7 +2,7 @@
 #include "type.h"
 #include "scene.h"
 #include "rasterization.h"
-#include "platform/windows/window.h"
+#include "platform/linux/window.h"
 #include "texture.h"
 #include "shader.h"
 #include<cstring>
@@ -61,12 +61,12 @@ int main(int argc, char** argv) {
 	rasterization.setShaderProgram(&sp);
 
 	//��������
-	Window window(&rasterization);
-	window.windowInit();
+	RenderWindow renderWindow(&rasterization);
+	renderWindow.windowInit();
 
 	//��Ⱦѭ��
-	while (!window.isClose) {
-		window.handleKeyboardAndMouseEvent();
+	while (!renderWindow.isClose) {
+		renderWindow.handleKeyboardAndMouseEvent();
 		rasterization.scene->camera->updateView();
 		rasterization.scene->camera->updateProjection();
 
@@ -74,8 +74,8 @@ int main(int argc, char** argv) {
 		rasterization.clearDepthBuffer();
 
 		rasterization.render();
-		window.windowDraw();
-		window.handleMsg();
+		renderWindow.windowDraw();
+		renderWindow.handleMsg();
 	}
 
 	return 0;

@@ -34,12 +34,21 @@ set(SOURCES
 if(WIN32)
     set(HEADERS ${HEADERS} platform/windows/window.h)
     set(SOURCES ${SOURCES} platform/windows/window_windows.cpp)
-# else()
-#     set(HEADERS ${HEADERS} platform/linux/window.h)
-#     set(SOURCES ${SOURCES} platform/linux/window_linux.cpp)
+elseif(UNIX)
+    set(HEADERS ${HEADERS} platform/linux/window.h)
+    set(SOURCES ${SOURCES} platform/linux/window_linux.cpp)
 endif()
 
+set(TARGET fantasyRender)
+
 add_executable(fantasyRender  ${HEADERS} ${SOURCES})
+
+if(WIN32)
+    # nothing to do
+elseif(UNIX)
+    target_link_libraries(${TARGET} X11)
+endif()
+
 
 set_directory_properties(PROPERTIES VS_STARTUP_PROJECT fantasyRender)
 source_group(TREE "${CMAKE_SOURCE_DIR}" FILES ${HEADERS} ${SOURCES})
