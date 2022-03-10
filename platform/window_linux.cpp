@@ -1,4 +1,4 @@
-#include "window.h"
+#include "../window.h"
 
 RenderWindow::RenderWindow(Rasterization *r)
 {
@@ -110,10 +110,10 @@ void RenderWindow::handleMessage(XEvent *event)
             XFree(keysyms);
 
             switch (keysym) {
-                case XK_KP_Up:        this->keyboard[0] = false;     break;
-                case XK_KP_Down:      this->keyboard[1] = false;     break;
-                case XK_KP_Left:      this->keyboard[2] = false;     break;
-                case XK_KP_Right:     this->keyboard[3] = false;     break;
+                case XK_Up:        this->keyboard[0] = false;     break;
+                case XK_Down:      this->keyboard[1] = false;     break;
+                case XK_Left:      this->keyboard[2] = false;     break;
+                case XK_Right:     this->keyboard[3] = false;     break;
                 default:           break;
             }
     }
@@ -133,7 +133,7 @@ void RenderWindow::handleMessage(XEvent *event)
             this->wheelAngle = -90;
         }
     }
-    else if(event->type == ButtonPress){
+    else if(event->type == ButtonRelease){
         if(event->xbutton.button == Button1){
 		    this->mouseLeft = false;
         }

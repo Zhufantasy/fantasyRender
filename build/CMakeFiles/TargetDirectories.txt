@@ -1,3 +1,0 @@
-/home/zhu/Desktop/fantasyRender/build/CMakeFiles/rebuild_cache.dir
-/home/zhu/Desktop/fantasyRender/build/CMakeFiles/edit_cache.dir
-/home/zhu/Desktop/fantasyRender/build/CMakeFiles/fantasyRender.dir

@@ -2,7 +2,7 @@
 #include "type.h"
 #include "scene.h"
 #include "rasterization.h"
-#include "platform/linux/window.h"
+#include "window.h"
 #include "texture.h"
 #include "shader.h"
 #include<cstring>
@@ -11,8 +11,8 @@
 
 
 
-std::string objModelPath = "../../models/diablo3_pose/diablo3_pose.obj";
-std::string texturePath = "../../models/diablo3_pose/diablo3_pose_diffuse.tga";
+std::string objModelPath = "../models/diablo3_pose/diablo3_pose.obj";
+std::string texturePath = "../models/diablo3_pose/diablo3_pose_diffuse.tga";
 
 
 

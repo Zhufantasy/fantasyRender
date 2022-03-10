@@ -1,6 +1,6 @@
-#include "window.h"
+#include "../window.h"
 
-Window::Window(Rasterization *r)
+RenderWindow::RenderWindow(Rasterization *r)
 {
 	this->r = r;
 	this->isClose = false;
@@ -13,7 +13,7 @@ Window::Window(Rasterization *r)
 	this->wheelAngle = 0;
 }
 
-void Window::windowInit()
+void RenderWindow::windowInit()
 {
 	HINSTANCE hInst = GetModuleHandle(NULL);
 	WNDCLASS wc;
@@ -35,7 +35,7 @@ void Window::windowInit()
 
 	if (hwnd == NULL)
 	{
-		MessageBox(NULL, "´´½¨´°¿Ú³ö´í!", "error", MB_OK);
+		MessageBox(NULL, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú³ï¿½ï¿½ï¿½!", "error", MB_OK);
 	}
 
 	SetProp(hwnd, "struct_window_pointer", this);
@@ -45,7 +45,7 @@ void Window::windowInit()
 	memset(&bi, 0, sizeof(BITMAPINFOHEADER));
 	bi.biSize = sizeof(BITMAPINFOHEADER);
 	bi.biWidth = width;
-	bi.biHeight = -height;   //´ÓÉÏµ½ÏÂ
+	bi.biHeight = -height;   //ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½
 	bi.biPlanes = 1;
 	bi.biBitCount = 32;
 	bi.biCompression = BI_RGB;
@@ -63,7 +63,7 @@ void Window::windowInit()
 	handleMsg();
 }
 
-void Window::windowDraw()
+void RenderWindow::windowDraw()
 {
 	for (int i = 0; i < width; i++)
 	{
@@ -71,7 +71,7 @@ void Window::windowDraw()
 		{
 			int indexWindowFB = (width * (height - j - 1) + i) * 4;
 			int indexFB = r->getIndex(i, j);
-			//framebufferÊÇÒÔ×óÏÂ½ÇÎªÆðµã£¬windowFramebufferÊÇÒÔ×óÉÏ½ÇÎªÆðµã
+			//framebufferï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â½ï¿½Îªï¿½ï¿½ã£¬windowFramebufferï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½Îªï¿½ï¿½ï¿½
 			windowFramebuffer[indexWindowFB] = r->frameBuffer[indexFB][2];
 			windowFramebuffer[indexWindowFB + 1] = r->frameBuffer[indexFB][1];
 			windowFramebuffer[indexWindowFB + 2] = r->frameBuffer[indexFB][0];
@@ -84,24 +84,24 @@ void Window::windowDraw()
 	ReleaseDC(hwnd, hDC);
 }
 
-void Window::handleMsg()
+void RenderWindow::handleMsg()
 {
 	while (1)
 	{
-		// Peek²»×èÈû£¬Get»á×èÈû£¬PM_NOREMOVE±íÊ¾Èç¹ûÓÐÏûÏ¢²»´¦Àí£¨Áô¸ø½ÓÏÂÀ´µÄGet´¦Àí£©
-		if (!PeekMessage(&msg, NULL, 0, 0, PM_NOREMOVE)) break; //Ã»ÏûÏ¢¾ÍÁï£¬È·¶¨ÓÐÏûÏ¢ÔÙÓÃGet
+		// Peekï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Getï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½PM_NOREMOVEï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Getï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		if (!PeekMessage(&msg, NULL, 0, 0, PM_NOREMOVE)) break; //Ã»ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï£¬È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Get
 		if (!GetMessage(&msg, NULL, 0, 0)) break;
 
-		TranslateMessage(&msg);	 //×ª»»ÏûÏ¢ ÐéÄâ°´¼ü->×Ö·û
-		DispatchMessage(&msg); //´«ËÍÏûÏ¢¸ø»Øµ÷
+		TranslateMessage(&msg);	 //×ªï¿½ï¿½ï¿½ï¿½Ï¢ ï¿½ï¿½ï¿½â°´ï¿½ï¿½->ï¿½Ö·ï¿½
+		DispatchMessage(&msg); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Øµï¿½
 	}
 }
 
-LRESULT Window::handleMessage(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
+LRESULT RenderWindow::handleMessage(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	switch (msg)
 	{
-	case WM_DESTROY:  //ÕýÔÚÏú»Ù´°¿Ú
+	case WM_DESTROY:  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù´ï¿½ï¿½ï¿½
 		this->isClose = true;
 		return 0;
 
@@ -143,7 +143,7 @@ LRESULT Window::handleMessage(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		this->mouseLeft = true;
 		POINT point;
 		GetCursorPos(&point);
-		ScreenToClient(hwnd, &point); // ´ÓÆÁÄ»¿Õ¼ä×ªµ½´°¿Ú¿Õ¼ä
+		ScreenToClient(hwnd, &point); // ï¿½ï¿½ï¿½ï¿½Ä»ï¿½Õ¼ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Õ¼ï¿½
 		this->mouseLocOld = { (float)point.x, (float)point.y };
 		return 0;
 
@@ -159,7 +159,7 @@ LRESULT Window::handleMessage(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	return DefWindowProc(hwnd, msg, wParam, lParam);
 }
 
-void Window::handleKeyboardAndMouseEvent()
+void RenderWindow::handleKeyboardAndMouseEvent()
 {
 	if (keyboard[0]) {
 		for (int i = 0; i < 3; ++i) {
@@ -186,7 +186,7 @@ void Window::handleKeyboardAndMouseEvent()
 	if (mouseLeft) {
 		POINT point;
 		GetCursorPos(&point);
-		ScreenToClient(hwnd, &point); // ´ÓÆÁÄ»¿Õ¼ä×ªµ½´°¿Ú¿Õ¼ä
+		ScreenToClient(hwnd, &point); // ï¿½ï¿½ï¿½ï¿½Ä»ï¿½Õ¼ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½Ú¿Õ¼ï¿½
 		vec2f mouseLocNew = { (float)point.x,(float)point.y };
 		vec3f mouseOffset = { (mouseLocNew[0] - mouseLocOld[0])*0.5,(mouseLocNew[1] - mouseLocOld[1])*0.5 };
 		mouseLocOld = mouseLocNew;

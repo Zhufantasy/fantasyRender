@@ -17,6 +17,7 @@ set(HEADERS
         texture.h
         tgaimage.h
         rasterization.h
+        window.h
         )
 
 set(SOURCES
@@ -32,11 +33,9 @@ set(SOURCES
         )
 
 if(WIN32)
-    set(HEADERS ${HEADERS} platform/windows/window.h)
-    set(SOURCES ${SOURCES} platform/windows/window_windows.cpp)
+    set(SOURCES ${SOURCES} platform/window_windows.cpp)
 elseif(UNIX)
-    set(HEADERS ${HEADERS} platform/linux/window.h)
-    set(SOURCES ${SOURCES} platform/linux/window_linux.cpp)
+    set(SOURCES ${SOURCES} platform/window_linux.cpp)
 endif()
 
 set(TARGET fantasyRender)
