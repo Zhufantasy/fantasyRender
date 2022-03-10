@@ -127,10 +127,10 @@ void RenderWindow::handleMessage(XEvent *event)
             this->mouseLocOld = { (float)window_x, (float)window_y };
         }
         else if(event->xbutton.button == Button4){
-            this->wheelAngle = 90;
+            this->wheelAngle = 120;
         }
         else if(event->xbutton.button == Button5){
-            this->wheelAngle = -90;
+            this->wheelAngle = -120;
         }
     }
     else if(event->type == ButtonRelease){
