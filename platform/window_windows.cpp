@@ -20,7 +20,7 @@ void RenderWindow::windowInit()
 	memset(&wc, 0, sizeof(wc));
 	wc.lpszClassName = "fantasyRenderWindow";
 	wc.hInstance = hInst;
-	wc.lpfnWndProc = Window::wndProc;
+	wc.lpfnWndProc = RenderWindow::wndProc;
 
 	RegisterClass(&wc);
 
@@ -213,8 +213,8 @@ void RenderWindow::handleKeyboardAndMouseEvent()
 
 LRESULT CALLBACK BaseWindow::wndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
-	Window *pthis = nullptr;
-	pthis = (Window*)GetProp(hwnd, "struct_window_pointer");
+	RenderWindow *pthis = nullptr;
+	pthis = (RenderWindow*)GetProp(hwnd, "struct_window_pointer");
 	if (pthis == NULL) {
 		return DefWindowProc(hwnd, msg, wParam, lParam);
 	}
