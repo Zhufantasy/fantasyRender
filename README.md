@@ -1,6 +1,6 @@
 # fantasyRender
 
-fantasyRender是一个软光栅化渲染器。
+fantasyRender是一个跨平台的软光栅化渲染器。
 
 实现中只用到了系统调用和c++标准库，不依赖任何第三方库。
 
